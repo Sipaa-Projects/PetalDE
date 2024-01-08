@@ -34,11 +34,14 @@ body {
 
 .shelf {
     display: flex;
-    justify-content: center; /* Center the window icons */
-    align-items: center; /* Center vertically */
+    justify-content: center;
+    /* Center the window icons */
+    align-items: center;
+    /* Center vertically */
     position: absolute;
     bottom: 0px;
-    bottom: -48px; /* Set initial position below the screen */
+    bottom: -48px;
+    /* Set initial position below the screen */
     width: 100%;
     background-color: #00000088;
     backdrop-filter: blur(20px);
@@ -49,11 +52,13 @@ body {
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     bottom: -48px;
-    transition: bottom 1.5s ease-in-out; /* Add transition for 'bottom' property */
+    transition: bottom 1.5s ease-in-out;
+    /* Add transition for 'bottom' property */
 }
 
 .shelf.open {
-    bottom: 0; /* Set the final position to show the shelf */
+    bottom: 0;
+    /* Set the final position to show the shelf */
 }
 
 .shelf::after {
@@ -111,6 +116,41 @@ body {
     margin: 30px;
     margin-top: 0px;
     height: calc(100% - 100px - 30px);
+    display: flex;
+    flex-direction: column;
+}
+
+.apps button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    text-align: left;
+    border: none;
+    margin-bottom: 10px;
+    color: white;
+    background: none;
+    border-radius: 10px;
+    transition: all 1s ease;
+    /* Espacement entre les boutons */
+}
+
+.apps button:hover {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    text-align: left;
+    border: none;
+    margin-bottom: 10px;
+    background-color: #c7c7c733;
+    /* Espacement entre les boutons */
+}
+
+.apps button i {
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+    margin-right: 5px;
 }
 
 #launcher #searchbar-container {
@@ -212,10 +252,13 @@ body {
 }
 
 .lockScreen button {
-    position: absolute; /* Changed position to absolute */
+    position: absolute;
+    /* Changed position to absolute */
     bottom: 240px;
-    left: 50%; /* Centered the button horizontally */
-    transform: translateX(-50%); /* Centered the button horizontally */
+    left: 50%;
+    /* Centered the button horizontally */
+    transform: translateX(-50%);
+    /* Centered the button horizontally */
     padding: 10px 20px;
     border-radius: 999px;
     border: none;

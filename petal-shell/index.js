@@ -104,6 +104,18 @@ function openAbout_clicked()
     launcherBtn_clicked();
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Sélectionne les boutons et les trie alphabétiquement
+    var buttons = document.querySelectorAll('.apps button');
+    var sortedButtons = Array.from(buttons).sort((a, b) => a.textContent.localeCompare(b.textContent));
+
+    // Remplace les boutons existants par les boutons triés
+    var appsDiv = document.querySelector('.apps');
+    sortedButtons.forEach(button => {
+        appsDiv.appendChild(button);
+    });
+});
+
 async function postStartup()
 {
     await wait(4000);
