@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bouncingRect {
+            width: 100px;
+            height: 100px;
+            background-color: #FFFFFF;
+            position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bouncingRect"></div>
+    <script>
+        // Get the rectangle element
+        const rect = document.querySelector('.bouncingRect');
+
+        // Set initial position and velocity
+        let posX = 0;
+        let posY = 0;
+        let velX = 5;
+        let velY = 3;
+
+        // Function to update the position and handle bouncing
+        function updatePosition() {
+            posX += velX;
+            posY += velY;
+
+            const maxX = window.innerWidth - rect.clientWidth;
+            const maxY = window.innerHeight - rect.clientHeight;
+
+            // Bounce on the horizontal edges
+            if (posX < 0 || posX > maxX) {
+                velX = -velX;
+            }
+
+            // Bounce on the vertical edges
+            if (posY < 0 || posY > maxY) {
+                velY = -velY;
+            }
+
+            // Update the position
+            rect.style.left = posX + 'px';
+            rect.style.top = posY + 'px';
+
+            // Call the update function again
+            requestAnimationFrame(updatePosition);
+        }
+
+        // Start the animation loop
+        updatePosition();
+    </script>
+</body>
+
+</html>

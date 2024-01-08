@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>About Petal</title>
+        <link rel="icon" href="../../assets/Icon.png" type="image/x-icon">
+        <style>
+            body {
+                overflow: hidden;
+                font-family: 'Noto Sans';
+                margin: 0;
+            }
+            .logo {
+                width: 100vw;
+                padding: 30px 0px;
+                text-align: center;
+            }
+
+            .content {
+                background-color: rgba(32, 32, 32, 0.575);
+                color: white;
+                padding: 20px;
+                position: absolute;
+                width: 100vw;
+                height: 100vh;
+            }
+
+            p {
+                margin: 0;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="logo">
+            <img src="../../assets/IconText.png" height="70px"/>
+        </div>
+        <div class="content">
+            <p>The Petal desktop environment.</p>
+            <p id="ver">Version 0.0.1</p>
+        </div>
+
+        <script src="../petal-api/main.js"></script>
+        <script>
+            document.getElementById('ver').textContent = "Version " + petalde.PETALDE_VER;
+        </script>
+    </body>
+</html>

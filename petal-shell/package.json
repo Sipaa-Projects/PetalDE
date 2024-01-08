@@ -1,0 +1,15 @@
+{
+  "name": "petal-shell",
+  "version": "0.1",
+  "description": "Petal Desktop is a web-based desktop environment, inspired from chromiumOS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sipaa Projects",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.1.1"
+  }
+}

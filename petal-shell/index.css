@@ -1,0 +1,273 @@
+/*
+    index.css - Petal Desktop stylesheet.
+
+    Copyright (C) 2024-present Sipaa Projects
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+*/
+
+body {
+    background-image: url('petal-assets/wallpaper.jpg');
+    margin: 0;
+    padding: 0;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    font-family: 'Noto Sans';
+}
+
+.shelf {
+    display: flex;
+    justify-content: center; /* Center the window icons */
+    align-items: center; /* Center vertically */
+    position: absolute;
+    bottom: 0px;
+    bottom: -48px; /* Set initial position below the screen */
+    width: 100%;
+    background-color: #00000088;
+    backdrop-filter: blur(20px);
+    color: white;
+    padding: 0px;
+    height: 48px;
+    border-top: 2px solid #ffffff10;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    bottom: -48px;
+    transition: bottom 1.5s ease-in-out; /* Add transition for 'bottom' property */
+}
+
+.shelf.open {
+    bottom: 0; /* Set the final position to show the shelf */
+}
+
+.shelf::after {
+    bottom: 0px;
+}
+
+.shelf .appLauncherButton {
+    border-radius: 20px;
+    height: 42px;
+    position: fixed;
+    top: 2px;
+    left: 4px;
+    background: #42424275;
+    border: none;
+    aspect-ratio: 1/1;
+    transition-duration: 600ms;
+    color: #ffffff;
+}
+
+.shelf .appLauncherButton:hover {
+    border-radius: 0px;
+    height: 48px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    border-top-left-radius: 25px;
+    background: #68686875;
+    border: none;
+    font-size: 15px;
+    aspect-ratio: 1/1;
+}
+
+#launcher {
+    background-color: #00000088;
+    position: fixed;
+    backdrop-filter: blur(20px);
+    color: white;
+    display: initial;
+    transform-origin: bottom left;
+    transition: 0.6s ease;
+    width: 500px;
+    height: 600px;
+    left: 10px;
+    bottom: 58px;
+    border: 1px solid #ffffff10;
+    border-radius: 25px;
+}
+
+#launcher.closed {
+    opacity: 0;
+    transform: translateY(160%) scale(0.4);
+}
+
+.apps {
+    margin: 30px;
+    margin-top: 0px;
+    height: calc(100% - 100px - 30px);
+}
+
+#launcher #searchbar-container {
+    padding: 30px;
+}
+
+.searchbar {
+    height: 40px;
+    border-radius: 40px;
+    background-color: #c7c7c733;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.searchbar i {
+    margin-left: 10px;
+}
+
+.searchbar input {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+.searchbar input::placeholder {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+.searchbar input:focus {
+    outline: none;
+}
+
+/* Style for the window icons container */
+.windowIcons {
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    height: 42px;
+    position: fixed;
+    top: 2px;
+}
+
+/* Style for individual window icon */
+.windowIcon {
+    border-radius: 20px;
+    width: 42px;
+    height: 42px;
+    background: #42424275;
+    border: none;
+    aspect-ratio: 1/1;
+    transition-duration: 600ms;
+    color: #ffffff;
+    line-height: 42px;
+    text-align: center;
+    margin-left: 4px;
+}
+
+.windowIconImg {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+}
+
+.lockScreen {
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 120px 0px 0px 0px;
+    transform: scale(0.7);
+    background-color: #00000088;
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    opacity: 0;
+    transition: all 1.5s ease-in-out;
+}
+
+.lockScreen.open {
+    border-radius: 0px;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.lockScreen .hour {
+    font-size: 80px;
+}
+
+.lockScreen button {
+    position: absolute; /* Changed position to absolute */
+    bottom: 240px;
+    left: 50%; /* Centered the button horizontally */
+    transform: translateX(-50%); /* Centered the button horizontally */
+    padding: 10px 20px;
+    border-radius: 999px;
+    border: none;
+    background-color: #00000088;
+    color: white;
+}
+
+.lockScreen button i {
+    margin-right: 6px;
+}
+
+.scrsaver {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: all 1.5s ease-in-out;
+    transform: scale(0.7);
+}
+
+.scrsaver iframe {
+    width: 100vw;
+    height: 100vh;
+}
+
+.scrsaver.open {
+    border-radius: 0px;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.startup {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    border-radius: 0px;
+    transform: scale(1);
+    opacity: 1;
+    transition: all 1.5s ease-in-out;
+    background-color: #000000;
+}
+
+.startup.closed {
+    border-radius: 40px;
+    transform: scale(0);
+    opacity: 0;
+}

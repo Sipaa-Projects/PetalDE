@@ -1,0 +1,262 @@
+/*
+    petal-api/wm.css - Petal Desktop window manager stylesheet.
+
+    Copyright (C) 2024-present Sipaa Projects
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+*/
+
+
+@keyframes wm-scaleopen {
+    from {
+        transform: scale(0.4);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Resizers */
+.resizers {
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    display: flex;
+    position: absolute;
+    top: -10px;
+    left: -5px;
+    pointer-events: none;
+}
+
+.resizer {
+    position: absolute;
+    pointer-events: all;
+    transition: all 0.3s ease;
+}
+.resizer:hover {
+    background-color: #00000094;
+    position: absolute;
+    pointer-events: all;
+}
+
+.resizer.top, .resizer.bottom {
+    width: calc(100% - 10px);
+    left: 5px;
+    height: 10px;
+}
+
+.resizer.left, .resizer.right {
+    width: 10px;
+    height: calc(100% - 10px);
+    top: 10px;
+}
+
+.resizer.top {
+    top: -5px;
+    cursor: ns-resize;
+}
+
+.resizer.bottom {
+    bottom: -10px;
+    cursor: ns-resize;
+}
+
+.resizer.left {
+    left: -5px;
+    cursor: ew-resize;
+}
+
+.resizer.right {
+    right: -5px;
+    cursor: ew-resize;
+}
+
+.resizer.top-left {
+    top: -5px;
+    left: -5px;
+    cursor: nwse-resize;
+    width: 10px;
+    height: 10px;
+}
+
+.resizer.top-right {
+    top: -5px;
+    right: -5px;
+    cursor: nesw-resize;
+    width: 10px;
+    height: 10px;
+}
+
+.resizer.bottom-left {
+    bottom: -10px;
+    left: -5px;
+    cursor: nesw-resize;
+    width: 10px;
+    height: 10px;
+}
+
+.resizer.bottom-right {
+    bottom: -10px;
+    right: -5px;
+    cursor: nwse-resize;
+    width: 10px;
+    height: 10px;
+}
+
+/* Title bar */
+
+.wdgwindow .title-bar {
+    color: white;
+    padding: 0px;
+    cursor: move;
+    display: flex;
+    align-items: center;
+    height: 4px;
+    opacity: 0;
+    transition: all 1s ease;
+    transform: translateY(-6px);
+}
+
+.wdgwindow .title-bar:hover {
+    color: white;
+    padding: 0px;
+    cursor: move;
+    display: flex;
+    align-items: center;
+    height: 32px;
+    opacity: 1;
+    background-color: #0000006c;
+    box-shadow: 0px 0px 42px -4px rgba(0, 0, 0, 0.17);
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+}
+
+.title-bar {
+    color: white;
+    padding: 0px;
+    cursor: move;
+    display: flex;
+    align-items: center;
+    height: 32px;
+}
+
+.title-bar > :not(.title-bar-btn) {
+    margin-left: 8px; /* Add left margin to the span */
+}
+
+.title-bar-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0;
+    text-align: center;
+    width: 26px;
+    height: 24px;
+    line-height: 24px;
+    margin: 4px;
+    border-radius: 24px;
+}
+
+.title-bar-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.minimize-btn {
+    margin-left: auto;
+}
+
+.close-btn {
+    margin-left: 4px; /* Add margin if needed between minimize and close buttons */
+}
+
+/* Window & content */
+.window {
+    position: fixed;
+    width: 1000px;
+    height: 700px;
+    left: 50px;
+    top: 50px;
+    background-color: #0000006c;
+    box-shadow: 0px 0px 42px -4px rgba(0, 0, 0, 0.17);
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: scale(0.01);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    overflow: visible; /* Add this line to allow overflow */
+}
+
+.window.open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.wdgwindow {
+    position: fixed;
+    width: 1000px;
+    height: 700px;
+    left: 50px;
+    top: 50px;
+    opacity: 0;
+    transform: scale(0.01);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    overflow: visible; /* Add this line to allow overflow */
+}
+
+.wdgwindow.open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.window .title-bar {
+    cursor: default;
+}
+
+iframe {
+    border: none;
+}
+
+/* Working area */
+.workingArea {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: calc(100% - 48px);
+    transition: all 1.5s ease-in-out;
+}
+
+.workingArea.open {
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.workingArea .watermark {
+    position: fixed;
+    bottom: 4px;
+    right: 4px;
+    font-family: 'Noto Sans';
+    font-size: 14px;
+    /* Adjust font size as needed */
+    color: rgba(255, 255, 255, 0.5);
+    /* Adjust color and opacity as needed */
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Petal Desktop</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="petal-api/wm/wm-pre.css">
+    <script src="https://kit.fontawesome.com/4eb441b480.js"></script>
+</head>
+
+<body>
+    <div class="scrsaver">
+        <iframe src="petal-bouncescr/index.html"></iframe>
+    </div>
+
+    <div class="lockScreen">
+        <span class="hour">20:14</span>
+        <button onclick="showDe()">
+            <i class="fa-solid fa-circle"></i> Unlock
+        </button>
+    </div>
+
+    <div class="workingArea" id="workingArea">
+        <p class="watermark">Petal Desktop, version 0.0.1</p>
+    </div>
+
+    <div id="launcher" class="closed">
+        <div id="searchbar-container">
+            <div class="searchbar">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" placeholder="Search your computer & the Web"></input>
+            </div>
+        </div>
+        <div class="apps">
+            <span>This is subject to change.</span>
+            <button onclick="openBing_clicked()">Open Bing</button>
+            <button onclick="openAbout_clicked()">Open About</button>
+            <button onclick="showLoginScreen()">Lock</button>
+        </div>
+    </div>
+
+    <div class="shelf">
+        <button class="appLauncherButton" onclick="launcherBtn_clicked()">
+            <i class="fa-solid fa-circle"></i>
+        </button>
+
+        <div class="windowIcons" id="windowIconsContainer">
+            <!-- Window icons go here -->
+        </div>
+    </div>
+
+    <div class="startup" style="text-align: center; color: white;">
+        <img src="../assets/Icon.png" style="line-height: 120px;"></img>
+        <p>Petal Desktop, a Sipaa project</p>
+    </div>
+
+    <script src="petal-api/main.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
